@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.cpoopc.scrollablelayoutlib.ScrollableLayout
+        android:id="@+id/topic_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="头部" />
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/top_title"
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:outlineProvider="background"
+                android:text="dajiaobao" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <wdwd.com.booklib.view.weight.CircularRevealView
+            android:id="@+id/circularRevealView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </wdwd.com.booklib.view.weight.CircularRevealView>
+    </com.cpoopc.scrollablelayoutlib.ScrollableLayout>
+
+</LinearLayout>

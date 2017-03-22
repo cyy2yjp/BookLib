@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/icon"
+        android:layout_width="48dip"
+        android:layout_height="48dip"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:roundAsCircle="true"
+        fresco:placeholderImage="@mipmap/tou_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/topic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:singleLine="true"
+        android:text="New subpage for Janet"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintLeft_toRightOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="@+id/icon"
+        android:textSize="18sp"
+        android:layout_marginStart="24dp"
+         />
+
+    <TextView
+        android:text="8-10am"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/icon"
+        android:singleLine="true"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/topic" />
+
+    <TextView
+        android:text="Hanouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_place"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/time"
+        app:layout_constraintTop_toBottomOf="@+id/topic"
+        android:layout_marginTop="2dp"
+        tools:text="Hanouts" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="82dp"
+        tools:layout_editor_absoluteY="18dp"
+        tools:layout_editor_absoluteX="278dp" />
+
+
+</android.support.constraint.ConstraintLayout>

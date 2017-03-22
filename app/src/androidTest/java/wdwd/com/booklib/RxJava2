@@ -1,0 +1,18 @@
+对RxJava的下一个主要版本正在开发中，主要的操作符基本保持不变，观察者的创建，订阅管理，和背压已经在这个新的版本全面整顿，你将要学会库和应用程序迁移到支持 rxjava2 ,以及两个版本之间的操作
+
+为什么Reactive 突然变成很多人谈论的东西？除非你能以同步的方式模拟你的应用程序的整个系统，有个一个异步源将最终打破传统的我们已经熟悉的编程风格。不是打破的感觉，它停止工作，但是在这个意义上他把复杂性推到你身上，
+你开始失去命令变成真正的好
+
+这里是一个例子去理解为什么我认为这是一个大问题
+
+interface UserManager {
+	User getUser();
+	void setName(String name);
+	void setAge(int age);
+}
+
+UserManager um = new UserManager();
+System.out.println(um.getUser());
+
+um.setName("Jane Doe");
+System.out.println(um.getUser());

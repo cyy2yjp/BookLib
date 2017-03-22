@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fl_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomNavigation"
+            ></android.support.v4.view.ViewPager>
+
+        <it.sephiroth.android.library.bottomnavigation.BottomNavigation
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:bbn_entries="@menu/tab_menu"
+            app:layout_behavior="@string/bbn_phone_view_behavior">
+
+        </it.sephiroth.android.library.bottomnavigation.BottomNavigation>
+
+        <wdwd.com.booklib.view.weight.CircleImageView
+            android:id="@+id/circularView"
+            android:transitionName="login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:background="@android:color/transparent"
+            />
+    </RelativeLayout>
+</LinearLayout>

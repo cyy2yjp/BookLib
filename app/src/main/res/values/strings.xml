@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BookLib</string>
+    <string name="str_login">登录</string>
+    <string name="str_password_hint">请输入密码</string>
+</resources>
