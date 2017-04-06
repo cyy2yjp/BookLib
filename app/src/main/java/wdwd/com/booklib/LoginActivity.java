@@ -1,8 +1,6 @@
 package wdwd.com.booklib;
 
-import android.animation.Animator;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -79,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onDestroy();
         disposables.clear();
     }
-
+    Point point =null;
     @OnClick(R.id.btn_login)
     public void onClick() {
         avLoadingView.show();
@@ -108,35 +106,25 @@ public class LoginActivity extends AppCompatActivity {
                         avLoadingView.hide();
                         btnLogin.setVisibility(View.VISIBLE);
 
-                        Point point = getLocationInView(scaleView,btnLogin);
+                        scaleView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                        point =  getLocationInView(scaleView,btnLogin);
                         scaleView.setVisibility(View.VISIBLE);
-                        scaleView.reveal(point.x, point.y, Color.parseColor("#ff4081"), btnLogin.getHeight(), 600, new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-                            }
 
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LoginActivity.this,scaleView,"login");
-                                startActivity(new Intent(LoginActivity.this,MainActivity.class),optionsCompat.toBundle());
-//                                scaleView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                            }
-
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-                        });
-
+                        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LoginActivity.this,scaleView, "login");
+                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        intent.putExtra("x",point.x);
+                        intent.putExtra("y",point.y);
+                        intent.putExtra("height",btnLogin.getHeight());
+                        startActivity(intent,optionsCompat.toBundle());
                     }
                 });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        scaleView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+    }
 
     private Point getLocationInView(View src, View target) {
         final int[] l0 = new int[2];

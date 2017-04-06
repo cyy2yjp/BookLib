@@ -87,7 +87,7 @@ public class ProfileFragment extends Fragment {
         appBarImage.setImageURI("http://p3.wmpic.me/article/2015/04/14/1428989717_ESIQxJUt.jpeg");
         loadFakeData();
         friendList.setNestedScrollingEnabled(true);
-        friendList.setAdapter(new FriendListAdapter(getActivity(), friendBeanList));
+        friendList.setAdapter(new FriendListAdapter( friendBeanList,BR.friend));
         friendList.setLayoutManager(new LinearLayoutManager(getActivity()));
         friendList.addItemDecoration(new RecycleViewDivider(getActivity(), LinearLayoutManager.HORIZONTAL, (int) getResources().getDimension(R.dimen.friend_list_item_divider_height), getResources().getColor(R.color.divider_color)));
 
@@ -106,6 +106,8 @@ public class ProfileFragment extends Fragment {
     private void loadFakeData() {
         for (int i = 0; i < 10; i++) {
             FriendBean friendBean = new FriendBean();
+            friendBean.setName("zhangsan"+i);
+            friendBean.setPlace("tanwan"+i);
             friendBeanList.add(friendBean);
         }
     }

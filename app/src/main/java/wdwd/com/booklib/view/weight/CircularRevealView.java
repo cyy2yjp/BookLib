@@ -94,7 +94,7 @@ public class CircularRevealView extends ViewGroup {
         inkView.setVisibility(View.VISIBLE);
 
         final float startScale = startRadius * 2f / inkView.getHeight();
-        final float finalScale = 2;
+        final float finalScale = 1.2f;
 
         prepareView(inkView, x, y, startScale);
         animator = inkView.animate().scaleX(finalScale).scaleY(finalScale).setDuration(duration).setListener(new Animator.AnimatorListener() {
@@ -107,7 +107,7 @@ public class CircularRevealView extends ViewGroup {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                setBackgroundColor(color);
+//                setBackgroundColor(color);
                 inkView.setVisibility(View.INVISIBLE);
                 if (listener != null) {
                     listener.onAnimationEnd(animation);

@@ -16,5 +16,6 @@ public class BookLibApplication extends Application{
         super.onCreate();
         ImagePipelineConfig imagePipelineConfig = ImagePipelineConfig.newBuilder(this).setDownsampleEnabled(true).build();
         Fresco.initialize(this,imagePipelineConfig);
+
     }
 }

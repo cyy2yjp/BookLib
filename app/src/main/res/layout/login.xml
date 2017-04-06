@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/spalsh_bg"
@@ -57,7 +56,7 @@
             android:background="?android:attr/textColorLink"
             android:elevation="7dp"
             android:text="登录"
-            android:transitionName="login"
+
             android:textColor="@android:color/white" />
 
         <com.wang.avi.AVLoadingIndicatorView
@@ -95,11 +94,11 @@
 
     <wdwd.com.booklib.view.weight.CircularRevealView
         android:id="@+id/scale_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="login"
         android:background="@android:color/transparent"
         app:layout_constraintRight_toRightOf="parent"
-        android:transitionName="login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"

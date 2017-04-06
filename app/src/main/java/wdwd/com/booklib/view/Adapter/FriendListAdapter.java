@@ -2,18 +2,13 @@ package wdwd.com.booklib.view.Adapter;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -25,33 +20,23 @@ import wdwd.com.booklib.bean.FriendBean;
  * Created by tomchen on 17/2/20.
  */
 
-public class FriendListAdapter extends RecyclerView.Adapter {
+public class FriendListAdapter extends SimpleAdapter<FriendBean> {
 
-    private List<FriendBean> friendBeanList = new ArrayList<>();
     private final static String TAG = "FriendListAdapter";
-    private Context context;
 
-    public FriendListAdapter(Context context, List<FriendBean> friendBeanList) {
-        this.friendBeanList = friendBeanList;
-        this.context = context;
+    public FriendListAdapter(List<FriendBean> mData,int brId) {
+        super(mData, R.layout.item_friends, brId);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d(TAG, "onCreateViewHolder" + viewType);
-
-        View view = LayoutInflater.from(context).inflate(R.layout.item_friends, null);
-        return new FriendListAdapter.ViewHolder(view);
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
+    public void onViewDetachedFromWindow(BindingViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
         holder.itemView.clearAnimation();
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(BindingViewHolder holder, int position) {
+        super.onBindViewHolder(holder,position);
         float fromScale = position == 0 ? 1.01f : position + 1.03f;
         if (fromScale > 1.4) {
             fromScale = 1.4f;
@@ -67,11 +52,6 @@ public class FriendListAdapter extends RecyclerView.Adapter {
         animatorSet.setDuration(500);
         animatorSet.start();
 
-    }
-
-    @Override
-    public int getItemCount() {
-        return friendBeanList != null ? friendBeanList.size() : 0;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
